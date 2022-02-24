@@ -1,0 +1,22 @@
+@import './variables.scss';
+// 搜索区域通用样式
+// .search-container{
+//   padding:$common-length;
+// }
+.title-width {
+  width: $title-width;
+}
+.title-margin-right {
+  margin-right: $common-length;
+}
+.title-text-all-center {
+  text-align: center;
+}
+.title-text-color{
+  color: $search-text-color;
+}
+.item {
+  flex: 0 0 30%;
+  margin-bottom: $common-length;
+  margin-right: $common-length;
+}

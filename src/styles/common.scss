@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+
+// 通用样式
+.d-flex {
+  display: flex;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.j-c {
+  justify-content: center;
+}
+.a-c {
+  align-items: center;
+}
+.flex-ja-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
