@@ -50,18 +50,20 @@
     <!-- 按钮组 -->
     <div
       :class="mode == 'list' ? 'list-btn-group' : 'page-btn-group'"
-      style="margin-bottom:20px"
+      style="margin-bottom:20px;display:flex; justify-content: center"
     >
-      <el-button
-        v-for="(buttonItem, index) in operatorList"
-        :key="index"
-        :type="buttonItem.type"
-        :icon="buttonItem.icon"
-        class="btn"
-        @click="buttonItem.func"
-      >
-        {{ buttonItem.label }}
-      </el-button>
+      <div v-for="(buttonItem, index) in operatorList" :key="index">
+        <el-button
+          v-if="isShow(buttonItem)"
+          :type="buttonItem.type"
+          size="small"
+          :icon="buttonItem.icon"
+          class="btn"
+          @click="buttonItem.func"
+        >
+          {{ buttonItem.label }}
+        </el-button>
+      </div>
     </div>
   </el-form>
 </template>
@@ -221,13 +223,13 @@ export default {
   width: 100%;
   line-height: 50px;
   text-align: center;
-  .btn {
-    margin-left: 20px;
-  }
+}
+.btn {
+  margin-left: 10px;
 }
 
 .list-btn-group {
-  margin-left: 120px;
+  margin-left: 80px;
 }
 
 .list-form {

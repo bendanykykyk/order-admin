@@ -40,7 +40,7 @@ export default {
           type: '',
           label: '返 回',
           func: () => {
-            this.$router.back()
+            this.$router.push({ name: 'unitList' })
           }
         },
         {
@@ -103,7 +103,7 @@ export default {
         if (res.status === 200) {
           // eslint-disable-next-line vue/no-parsing-error
           // this.$message.success('操作成功')
-          this.$router.back()
+          this.$router.push({ name: 'unitList' })
         }
       })
     },
@@ -122,7 +122,7 @@ export default {
         if (res.status === 200) {
           // eslint-disable-next-line vue/no-parsing-error
           // this.$message.success('操作成功')
-          this.$router.back()
+          this.$router.push({ name: 'unitList' })
         }
       })
     },

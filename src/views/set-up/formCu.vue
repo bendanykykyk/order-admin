@@ -57,7 +57,10 @@ export default {
           type: '',
           label: '返 回',
           func: () => {
-            this.$router.back()
+            this.$router.push({ name: 'Login' })
+          },
+          display: () => {
+            return !this.$route.path.includes('edit')
           }
         },
         {

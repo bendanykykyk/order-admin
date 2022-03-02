@@ -52,6 +52,7 @@ export const constantRoutes = [
   },
   {
     path: '/login',
+    name: 'Login',
     component: () => import('@/views/login/index'),
     hidden: true
   },
@@ -155,6 +156,32 @@ export const constantRoutes = [
 
         meta: {
           title: '商品',
+          affix: false
+          // icon: 'dashboard',
+          // affix: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/dashboard', // 如果有这个东西，通过$route.query能拿到它
+    meta: {
+      title: '订单管理',
+      affix: false
+      // icon: 'dashboard',
+      // affix: true
+    },
+    children: [
+      {
+        path: '/order/list',
+        component: () => import('@/views/order/index'),
+        name: 'orderList',
+        hidden: false,
+
+        meta: {
+          title: '订单管理',
           affix: false
           // icon: 'dashboard',
           // affix: true

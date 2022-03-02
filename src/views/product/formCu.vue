@@ -87,7 +87,7 @@ export default {
           type: '',
           label: '返 回',
           func: () => {
-            this.$router.back()
+            this.$router.push({ name: 'productList' })
           }
         },
         {
@@ -169,7 +169,7 @@ export default {
         if (res.status === 200) {
           // eslint-disable-next-line vue/no-parsing-error
           // this.$message.success('操作成功')
-          this.$router.back()
+          this.$router.push({ name: 'productList' })
         }
       })
     },
@@ -184,11 +184,13 @@ export default {
       // })
 
       // const data = { ...this.formData, logo: images }
+
       Product.updateData(this.formData).then(res => {
         if (res.status === 200) {
           // eslint-disable-next-line vue/no-parsing-error
           // this.$message.success('操作成功')
-          this.$router.back()
+          // this.$router.back()
+          this.$router.push({ name: 'productList' })
         }
       })
     },
