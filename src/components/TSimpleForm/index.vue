@@ -79,6 +79,7 @@ import FormUploadFileList from '@/components/TSimpleForm/FormUploadFileList/inde
 import FormRichText from '@/components/TSimpleForm/FormRichText/index'
 import FormDateTimePicker from '@/components/TSimpleForm/FormDateTimePicker/index'
 import FormDescriptionList from '@/components/TSimpleForm/FormDescriptionList/index'
+import FormDescriptionLists from '@/components/TSimpleForm/FormDescriptionLists/index'
 import FormAliMap from '@/components/TSimpleForm/FormAliMap/index'
 
 // 业务组件
@@ -101,6 +102,7 @@ export default {
     FormRichText,
     FormDateTimePicker,
     FormDescriptionList,
+    FormDescriptionLists,
     FormUploadFileList,
     FormAliMap,
     // 业务
@@ -150,6 +152,7 @@ export default {
           dateTimePicker: 'FormDateTimePicker',
           richText: 'FormRichText',
           descriptionList: 'FormDescriptionList',
+          descriptionLists: 'FormDescriptionLists',
           uploadFileList: 'FormUploadFileList',
           aliMap: 'FormAliMap',
           // 业务

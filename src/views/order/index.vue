@@ -14,13 +14,13 @@
         :table-columns="tableColumns"
         :table-op-columns="tableOpColumns"
       >
-        <template v-slot:url="data">
+        <!-- <template v-slot:url="data">
           <el-image
             style="width:100px;height:60px"
             fit="fit"
             :src="data.scope.row.url"
           />
-        </template>
+        </template> -->
       </t-table-list>
 
       <pagination
@@ -73,15 +73,15 @@ export default {
           label: '重 置',
           func: this.resetFields
         },
-        {
-          type: 'primary',
-          icon: 'el-icon-circle-plus-outline',
+        // {
+        //   type: 'primary',
+        //   icon: 'el-icon-circle-plus-outline',
 
-          label: '添 加',
-          func: () => {
-            this.$router.push('/Order/add')
-          }
-        },
+        //   label: '添 加',
+        //   func: () => {
+        //     this.$router.push('/Order/add')
+        //   }
+        // },
         {
           type: 'primary',
           icon: 'el-icon-search',
@@ -160,10 +160,21 @@ export default {
           dataIndex: 'a1',
           props: {
             // sortable: true
-            width: '200',
+            width: '240',
             fixed: 'right'
           },
           btnGroup: [
+            {
+              label: '查看点餐',
+              type: 'primary',
+              icon: 'el-icon-search',
+              onClick: ({ index, row }) => {
+                this.$router.push({
+                  path: '/order/edit',
+                  query: { id: row.order_no }
+                })
+              }
+            },
             // {
             //   label: '编辑',
             //   type: 'primary',
@@ -185,14 +196,15 @@ export default {
             //   }
             // }
             {
-              type: 'primary',
+              type: 'info',
               icon: 'el-icon-thumb',
               label: '接单',
               onClick: async ({ index, row }) => {
                 // 调用改状态接口
                 await Order.status({
                   order_no: row.order_no,
-                  order_receive_status: true
+                  order_receive_status: true,
+                  _openid: row._openid
                 })
                 this.queryOrderList()
               },

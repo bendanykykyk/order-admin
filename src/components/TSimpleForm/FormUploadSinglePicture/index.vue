@@ -43,6 +43,7 @@ export default {
   beforeDestroy() {},
   methods: {
     handleAvatarSuccess(res, file, fileList) {
+      this.$parent.resetField()
       this.$emit('change', res.data.url, file)
       // this.$emit('change', URL.createObjectURL(file.raw))
       // this.$emit('change', res.data)

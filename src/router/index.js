@@ -84,8 +84,8 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: {
-          title: 'Dashboard',
-          // icon: 'dashboard',
+          title: '数据分析',
+          icon: 'el-icon-s-data',
           affix: true
         }
       }
@@ -104,8 +104,8 @@ export const constantRoutes = [
 
         meta: {
           title: '基本信息设置',
-          affix: false
-          // icon: 'dashboard',
+          affix: false,
+          icon: 'el-icon-setting'
           // affix: true
         }
       }
@@ -116,9 +116,9 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/dashboard', // 如果有这个东西，通过$route.query能拿到它
     meta: {
-      title: '菜品设置管理',
-      affix: false
-      // icon: 'dashboard',
+      title: '菜品管理',
+      affix: false,
+      icon: 'el-icon-tableware'
       // affix: true
     },
     children: [
@@ -169,8 +169,8 @@ export const constantRoutes = [
     redirect: '/dashboard', // 如果有这个东西，通过$route.query能拿到它
     meta: {
       title: '订单管理',
-      affix: false
-      // icon: 'dashboard',
+      affix: false,
+      icon: 'el-icon-bank-card'
       // affix: true
     },
     children: [
@@ -352,6 +352,19 @@ export const constantRoutes = [
 
         meta: {
           title: '编辑商品',
+          affix: false
+          // icon: 'dashboard',
+          // affix: true
+        }
+      },
+      {
+        path: '/order/edit',
+        component: () => import('@/views/order/formCu'),
+        name: 'orderEdit',
+        hidden: false,
+
+        meta: {
+          title: '订单详情',
           affix: false
           // icon: 'dashboard',
           // affix: true

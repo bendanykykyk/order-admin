@@ -27,33 +27,30 @@
         trigger="click"
       >
         <div class="avatar-wrapper">
-          <img
-            src="../../assets/common_images/default-avator.jpg"
-            class="user-avatar"
-          />
+          <el-avatar shape="square" size="medium" :src="imgUrl" />
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
-          <router-link to="/profile/index">
-            <el-dropdown-item>Profile</el-dropdown-item>
+          <router-link to="/merchant/edit">
+            <el-dropdown-item>修改信息</el-dropdown-item>
           </router-link>
           <router-link to="/">
-            <el-dropdown-item>Dashboard</el-dropdown-item>
+            <el-dropdown-item>数据板</el-dropdown-item>
           </router-link>
-          <a
+          <!-- <a
             target="_blank"
             href="https://github.com/PanJiaChen/vue-element-admin/"
           >
             <el-dropdown-item>Github</el-dropdown-item>
-          </a>
-          <a
+          </a> -->
+          <!-- <a
             target="_blank"
             href="https://panjiachen.github.io/vue-element-admin-site/#/"
           >
             <el-dropdown-item>Docs</el-dropdown-item>
-          </a>
+          </a> -->
           <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
+            <span style="display:block;">登出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -71,6 +68,7 @@ import SizeSelect from '@/components/SizeSelect'
 import Search from '@/components/HeaderSearch'
 
 // import { removeToken } from '@/utils/auth'
+import Merchant from '@/network/merchant'
 export default {
   components: {
     Breadcrumb,
@@ -80,9 +78,18 @@ export default {
     SizeSelect,
     Search
   },
+  data() {
+    return {
+      imgUrl: ''
+    }
+  },
   computed: {
     ...mapGetters(['sidebar', 'avatar', 'device'])
   },
+  created() {
+    this.queryMerchantInfo()
+  },
+
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
@@ -95,6 +102,11 @@ export default {
       })
       // removeToken()
       // this.$store.commit('user/SET_TOKEN', '')
+    },
+    async queryMerchantInfo() {
+      const { data: merchantInfo } = await Merchant.queryDetail()
+
+      this.imgUrl = merchantInfo.data[0].logo[0].url
     }
   }
 }
